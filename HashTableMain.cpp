@@ -8,13 +8,13 @@
 #include <iostream>
 #include "HashTable.hpp"
 
-//#define TEST_BASE // always define this if testing any base
-//#define TEST_BASE_FIND
+#define TEST_BASE // always define this if testing any base
+#define TEST_BASE_FIND
 //#define TEST_BASE_REMOVE
 //#define TEST_BASE_DISPLAY
 //#define TEST_BASE_GROW
 
-//#define TEST_ADV // always define this if testing any advanced
+#define TEST_ADV // always define this if testing any advanced
 //#define TEST_ADV_FIND
 //#define TEST_ADV_REMOVE
 //#define TEST_ADV_DISPLAY
@@ -37,6 +37,7 @@ int main()
 #ifdef TEST_BASE_FIND
     std::cout << "Testing addItem and findItem\n" << std::endl;
     StringHash baseFind;
+    std::cout << baseGrow.displayTable() << std::endl;
 
     for (int i = 0; i < BASE_SIZE; i++)
     {
