@@ -1,22 +1,29 @@
 #pragma once
 #include <iostream>
+#include <string>
 using namespace std;
-#define BASE_SIZE 11
+#define CONST_SIZE 11
 
 class StringHash
 {
 private:
 	int arrSize;
-	string *StringArray;
+	string strEmpty = "_empty_";
+	string strDelete = "_deleted_";
+	string** StringArray;
+	int counter = 0;
+	int findEmptyIndex(string);
+	int findFilledIndex(string);
+	int Hash(string);
 
 public:
-	StringHash() { StringHash(BASE_SIZE); };
+	StringHash(); // { StringHash(CONST_SIZE); };
 	StringHash(int);
 
-	void fillEmpty(std::string []);
+	void fillEmpty();//std::string []);
 	void resize(int nSize);
 	void addItem(string);
-	bool findItem(string) { return false; }
+	bool findItem(string);
 	void removeItem(string);
 	string displayTable();
 };

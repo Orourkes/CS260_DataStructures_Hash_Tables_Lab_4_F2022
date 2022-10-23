@@ -31,26 +31,27 @@ int main()
 {
 #ifdef TEST_BASE
     const int BASE_SIZE = 5;
-    std::string baseWords[BASE_SIZE] = { "maple", "spruce", "oak", "cedar", "cherry" };
+    std::string baseWords[BASE_SIZE] = { "maple", "spruce", "oak", "cedar", "cherry"};
 
     std::cout << "\nStringHash tests\n" << std::endl;
 #ifdef TEST_BASE_FIND
     std::cout << "Testing addItem and findItem\n" << std::endl;
     StringHash baseFind;
-    std::cout << baseGrow.displayTable() << std::endl;
 
     for (int i = 0; i < BASE_SIZE; i++)
     {
         baseFind.addItem(baseWords[i]);
     }
+    std::cout << baseFind.displayTable() << std::endl;
     std::cout << "Should find maple and not apple" << std::endl;
     std::cout << " maple" << (baseFind.findItem("maple") ? " " : " not ") << "found" << std::endl;
+    std::cout << " a" << (baseFind.findItem("a") ? " " : " not ") << "found" << std::endl;
     std::cout << " apple" << (baseFind.findItem("apple") ? " " : " not ") << "found" << std::endl;
 
 
     std::cout << "\nDone testing addItem and findItem\n" << std::endl;
 #endif // TEST_BASE_FIND
-#ifdef TEST_BASE_REMOVE
+#ifndef TEST_BASE_REMOVE
     std::cout << "Testing addItem, findItem, and removeItem\n" << std::endl;
     StringHash baseRemove;
 
@@ -64,10 +65,10 @@ int main()
     std::cout << " maple" << (baseRemove.findItem("maple") ? " " : " not ") << "found" << std::endl;
     std::cout << "Should find spruce" << std::endl;
     std::cout << " spruce" << (baseRemove.findItem("spruce") ? " " : " not ") << "found" << std::endl;
-
+    std::cout << baseRemove.displayTable() << std::endl;
     std::cout << "\nDone testing addItem, findItem, and removeItem\n" << std::endl;
 #endif // TEST_BASE_REMOVE
-#ifdef TEST_BASE_DISPLAY
+#ifndef TEST_BASE_DISPLAY
     std::cout << "Testing addItem, findItem, removeItem, and display\n" << std::endl;
     StringHash baseList;
 
@@ -81,7 +82,7 @@ int main()
 
     std::cout << "\nDone testing addItem, findItem, removeItem, and display\n" << std::endl;
 #endif // TEST_BASE_DISPLAY
-#ifdef TEST_BASE_GROW
+#ifndef TEST_BASE_GROW
     std::cout << "Testing growing StringHash\n" << std::endl;
     const int BASE_EXTRA = 3;
     std::string baseExtraWords[BASE_EXTRA] = { "bear", "pony", "cow" };
