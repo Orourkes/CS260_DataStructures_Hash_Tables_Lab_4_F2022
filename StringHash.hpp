@@ -17,10 +17,10 @@ private:
 	int Hash(string);
 
 public:
-	StringHash(); // { StringHash(CONST_SIZE); };
+	StringHash();
 	StringHash(int);
-
-	void fillEmpty();//std::string []);
+	~StringHash() {	delete StringArray;	}
+	void fillEmpty();
 	void resize(int nSize);
 	void addItem(string);
 	bool findItem(string);

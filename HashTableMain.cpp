@@ -6,7 +6,6 @@
 //
 
 #include <iostream>
-#include "HashTable.hpp"
 
 #define TEST_BASE // always define this if testing any base
 #define TEST_BASE_FIND
@@ -122,7 +121,7 @@ int main()
     std::string advWords[ADV_SIZE] = { "dog", "cat", "ape", "cow", "frog", "fish", "goat", "bear", "deer", "elk" };
 
     std::cout << "\nChainHash tests\n" << std::endl;
-#ifdef TEST_ADV_FIND
+#ifndef TEST_ADV_FIND
     std::cout << "Testing addItem and findItem\n" << std::endl;
     ChainHash advFind;
 
@@ -133,11 +132,11 @@ int main()
     std::cout << "Should find goat and not horse" << std::endl;
     std::cout << "goat" << (advFind.findItem("goat") ? " " : " not ") << "found" << std::endl;
     std::cout << "horse" << (advFind.findItem("horse") ? " " : " not ") << "found" << std::endl;
-
+    std::cout << advFind.displayTable();
     std::cout << "\nDone testing addItem and findItem\n" << std::endl;
 #endif // TEST_ADV_FIND
 
-#ifdef TEST_ADV_REMOVE
+#ifndef TEST_ADV_REMOVE
     std::cout << "Testing addItem, findItem, and removeItem\n" << std::endl;
     ChainHash advRemove;
 
@@ -153,7 +152,7 @@ int main()
     std::cout << "\nDone testing addItem, findItem, and removeItem\n" << std::endl;
 #endif // TEST_ADV_REMOVE
 
-#ifdef TEST_ADV_DISPLAY
+#ifndef TEST_ADV_DISPLAY
     std::cout << "Testing addItem, findItem, removeItem, and display\n" << std::endl;
     ChainHash advList;
 
@@ -162,7 +161,7 @@ int main()
         advList.addItem(advWords[i]);
     }
 
-    advList.removeItem("goat");
+    //advList.removeItem("goat");
     std::cout << "Should be: \n_empty_\ndeer frog\nfish cow\n"
         << "goat\ndog\nbear\nelk ape cat" << std::endl;
     std::cout << "The order might differ, but contents should not\n" << std::endl;
@@ -171,7 +170,7 @@ int main()
     std::cout << "\nDone testing addItem, findItem, removeItem, and display\n" << std::endl;
 #endif // TEST_ADV_DISPLAY
 
-#ifdef TEST_THINK
+#ifndef TEST_THINK
     std::cout << "Testing thinking problem (growing ChainHash)\n" << std::endl;
     const int ADV_EXTRA = 6;
     std::string advExtraWords[ADV_EXTRA] = { "apple", "pine", "fir", "oak", "maple", "fig" };
